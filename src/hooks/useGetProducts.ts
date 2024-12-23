@@ -2,7 +2,6 @@ import { useAppDispatch, useAppSelector } from "@store/hooks"
 import actGetProducts from "@store/products/action/ActGetProducts"
 import { useParams } from "react-router-dom"
 import { useEffect, useState } from "react"
-import { cleanupProductsState } from "@store/products/ProductsSlice"
 
 export const useGetProducts = () => {
   
@@ -22,7 +21,6 @@ export const useGetProducts = () => {
     const promise = dispatch(actGetProducts(params.prefix as string))
 
     return () => {
-      dispatch(cleanupProductsState())
       promise.abort();
     }
   }, [dispatch, params])

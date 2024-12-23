@@ -5,4 +5,5 @@ export type TProducts = {
     img:string,
     description?: string,
     cat_prefix?: string,
+    quantity?: number
 }

@@ -3,7 +3,7 @@ import SubscribeOffer from "@components/eCommerce/subscribeOffer/SubscribeOffer"
 
 function About() {
   return (
-    <section className="about mt-24">
+    <section className="about mt-15">
 
         <div className="latest_heading text-center my-16">
           <h1 className="md:text-1xl text-2xl font-medium my-4 text-gray-500">ABOUT <span className="text-black font-bold">US</span></h1>

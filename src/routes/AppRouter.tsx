@@ -1,6 +1,6 @@
 import {createBrowserRouter, RouterProvider} from "react-router-dom"
 import MainLayout from '@components/layouts/MainLayout/MainLayout'
-import {Home, Collection, Contact, About, Products, Error} from "@pages/main" 
+import {Home, Collection, Contact, About, Products, Error, ProductDetails, Cart} from "@pages/main" 
 
 const router = createBrowserRouter([
   {
@@ -32,16 +32,24 @@ const router = createBrowserRouter([
         element: <Collection/>
       },
       {
-        path: "product",
+        path: "/product",
         element: <Products/>,
       },
       {
-        path: "contact",
+        path: "/contact",
         element: <Contact/>
       },
       {
-        path: "about",
+        path: "/about",
         element: <About/>
+      },
+      {
+        path: "/product_Details",
+        element: <ProductDetails/>
+      },
+      {
+        path: "/cart",
+        element: <Cart/>
       }
     ]
   }

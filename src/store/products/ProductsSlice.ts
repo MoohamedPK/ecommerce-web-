@@ -19,21 +19,28 @@ const ProductsSlice = createSlice({
     name: "products",
     initialState,
     reducers: {
-        cleanupProductsState: (state) => {
-            state.records = []
-        },
-
-        // func low to high
-
+        
+        // func high to low
         filterHighToLow: (state) => {
             state.records = state.records.sort((a,b) => {
                 return b.price - a.price
             })
         },
-
+        // func low to high
         filterLowToHigh: (state) => {
             state.records = state.records.sort((a,b) => {
                 return a.price - b.price
+            })
+        },
+        resetRecordsOnChange: (state) => {
+            state.records = initialState.records.slice()
+        },
+
+        //targeted product
+        targetedProduct: (state, action) => {
+            state.records = state.records.filter((record) => {
+                // console.log(record.id === action.payload)
+                return record.id === action.payload
             })
         },
         
@@ -58,4 +65,4 @@ const ProductsSlice = createSlice({
 })
 
 export default ProductsSlice.reducer;
-export const {cleanupProductsState, filterHighToLow, filterLowToHigh} = ProductsSlice.actions
+export const {filterHighToLow, filterLowToHigh, resetRecordsOnChange, targetedProduct} = ProductsSlice.actions

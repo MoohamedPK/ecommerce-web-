@@ -4,7 +4,7 @@ import { TCategory } from "src/types"
 import { useGetCategories } from "@hooks/useGetCategories"
 
 function Categories() {
-
+  
   const {records} = useGetCategories()
   return (
     <div className="flex flex-col my-4">
