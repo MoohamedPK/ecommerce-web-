@@ -1,7 +1,7 @@
 
 function CartSubtotalPrice() {
   return (
-    <div className="mt-10 w-1/3 space-y-8 p-4 text-sm font-medium">
+    <div className="mt-10 md:w-1/3 space-y-8 p-4 text-sm font-medium">
         <div className="flex justify-between items-center">
             <h3>subtotal</h3>
             <span>90</span>
