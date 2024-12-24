@@ -1,21 +1,23 @@
 import { IoMdTrash } from "react-icons/io"
 import { TProducts } from "src/types"
-import { increaseProdQuantity } from "@store/Cart/cartSlice"
-import { decreaseProdQuantity } from "@store/Cart/cartSlice"
+import { increaseProdQuantity, decreaseProdQuantity, removeCartItem } from "@store/Cart/cartSlice"
 import { useAppDispatch } from "@store/hooks"
+import { memo } from "react"
 
-type TCartItemProps = TProducts[]
+type TCartItemProps = TProducts
 
-function CartItem({title, img, price, quantity, id}: TCartItemProps) {
-  console.log("render")
+ const CartItem =  memo(({title, img, price, quantity, id}: TCartItemProps) => {
   const dispatch = useAppDispatch()
-
   const handleIncreasing = () => {
     dispatch(increaseProdQuantity(id))
   }
 
   const handleDecreasing = () => {
     dispatch(decreaseProdQuantity(id))
+  }
+
+  const handleRemoveCartItem = () => {
+    dispatch(removeCartItem(id))
   }
 
   return (
@@ -39,11 +41,13 @@ function CartItem({title, img, price, quantity, id}: TCartItemProps) {
                 <button className="flex justify-center items-center px-2  size-5 bg-black hover:opacity-[0.7] text-white" onClick={handleDecreasing}>-</button>
               </div>
 
-                <IoMdTrash size={24} className="cursor-pointer"/>
+                <div onClick={handleRemoveCartItem}>
+                  <IoMdTrash size={24} className="cursor-pointer"/>
+                </div>
             </div>
         </div>
     </div>
   )
-}
+})
 
 export default CartItem

@@ -31,7 +31,7 @@ function Header() {
     <header className="mb-14">
 
       <div className="flex flex-col">
-        <div className="flex justify-between">
+        <div className="flex justify-between items-center">
           
           <div className="logo"><img className="w-32" src={logo} alt="" /></div>
 
