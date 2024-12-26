@@ -16,6 +16,8 @@ function CartSubtotalPrice({products}:TCartSubtotalPriceProps) {
 
   return (
     <div className="mt-10 md:w-1/3 space-y-8 p-4 text-sm font-medium tracking-widest">
+      <div className="font-semibold text-xl">Cart Total</div>
+      
         <div className="flex justify-between items-center ">
             <h3>Subtotal</h3>
             <span>${subTotal}</span>

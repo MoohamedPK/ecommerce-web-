@@ -7,7 +7,7 @@ export const useGetCollection = () => {
 
     
   const dispatch = useAppDispatch()
-  const {records} = useAppSelector(state => state.collection)
+  const {records, loading, error} = useAppSelector(state => state.collection)
 
   useEffect(() => {
     const promise = dispatch(actGetCollectionByPrefix())
@@ -18,5 +18,5 @@ export const useGetCollection = () => {
     }
   }, [dispatch])
 
-    return {records}
+    return {records, loading, error}
 }

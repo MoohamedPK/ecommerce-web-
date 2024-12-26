@@ -2,19 +2,15 @@ import { TProducts } from "src/types"
 import { addToCart } from "@store/Cart/cartSlice"
 import { useAppDispatch } from "@store/hooks"
 
-function ProductInfo({id,title, price, img,}:TProducts) {
+type TpProductDetailProps = TProducts
+function ProductDetail({img, title, price, id}:TpProductDetailProps) {
 
     const dispatch = useAppDispatch()
 
-    const handleSubmitesSize = (e) => {
-        e.preventDefault()
-        console.log(e.target.value)
-    }
-
-    
     const handleAddToCart = () => {
         dispatch(addToCart(id))
     }
+
   return (
     <div>
         <div className="md:flex md:space-x-5 md:space-y-0 space-y-5 space-x-0 grid border border-black px-10 py-8 rounded-lg mb-24">
@@ -33,7 +29,7 @@ function ProductInfo({id,title, price, img,}:TProducts) {
 
                 <div className="sizes text-sm font-semibold w-1/3">
                     <p className="">Select Size</p>
-                    <div className="flex justify-around mt-5" onSubmit={handleSubmitesSize}>
+                    <div className="flex justify-around mt-5">
                         <span className=" px-4 py-3 border border-black hover:-translate-y-1 transition duration-200">S</span>
                         <span className=" px-4 py-3 border border-black hover:-translate-y-1 transition duration-200">M</span>
                         <span className=" px-4 py-3 border border-black hover:-translate-y-1 transition duration-200">L</span>
@@ -68,4 +64,4 @@ function ProductInfo({id,title, price, img,}:TProducts) {
   )
 }
 
-export default ProductInfo
+export default ProductDetail

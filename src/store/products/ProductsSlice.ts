@@ -1,6 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { TProducts, TLoading, } from "src/types";
 import actGetProducts from "./action/ActGetProducts";
+// import actGetTargetedProduct from "./action/actGetTargetedProduct";
 
 
 interface IProductsSlice  {
@@ -32,9 +33,6 @@ const ProductsSlice = createSlice({
                 return a.price - b.price
             })
         },
-        resetRecordsOnChange: (state) => {
-            state.records = initialState.records.slice()
-        },
 
         //targeted product
         targetedProduct: (state, action) => {
@@ -54,15 +52,32 @@ const ProductsSlice = createSlice({
         builder.addCase(actGetProducts.fulfilled, (state, action) => {
             state.error = null
             state.loading = "succeeded"
-            state.records = action.payload
+            state.records = action.payload as TProducts[]
         })
 
         builder.addCase(actGetProducts.rejected, (state, action) => {
             state.error = action.payload as string
             state.loading = "failed"
         })
+
+        // // BRING THE TARGETED PRODS
+        // builder.addCase(actGetTargetedProduct.pending, (state) => {
+        //     state.error = null
+        //     state.loading = "pending"
+        // })
+
+        // builder.addCase(actGetTargetedProduct.fulfilled, (state, action) => {
+        //     state.error = null
+        //     state.loading = "succeeded"
+        //     state.records = action.payload as TProducts[]
+        // })
+
+        // builder.addCase(actGetTargetedProduct.rejected, (state, action) => {
+        //     state.error = action.payload as string
+        //     state.loading = "failed"
+        // })
     }
 })
 
 export default ProductsSlice.reducer;
-export const {filterHighToLow, filterLowToHigh, resetRecordsOnChange, targetedProduct} = ProductsSlice.actions
+export const {filterHighToLow, filterLowToHigh, targetedProduct} = ProductsSlice.actions

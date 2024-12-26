@@ -6,7 +6,7 @@ import { useEffect, useState } from "react"
 export const useGetProducts = () => {
   
   const dispatch = useAppDispatch();
-  const {records} = useAppSelector(state => state.products)
+  const {records, error, loading} = useAppSelector(state => state.products)
   
   const [currentPage, setCurrentPage] = useState<number>(1)
   const [prodsPerPage, setProdsPerPage] = useState<number>(20)
@@ -26,5 +26,5 @@ export const useGetProducts = () => {
   }, [dispatch, params])
 
 
-    return {records, currentProducts, params, prodsPerPage, setCurrentPage,currentPage, setProdsPerPage}
+    return {records, currentProducts, params, prodsPerPage, setCurrentPage,currentPage, setProdsPerPage, loading, error}
 }

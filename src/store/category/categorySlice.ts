@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { TCategory, TLoading } from "src/types";
+import { TCategory, TLoading } from "@types";
 import actGetCategory from "./action/actGetCategory";
 
 

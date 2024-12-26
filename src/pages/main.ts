@@ -5,8 +5,7 @@ import About from "./About";
 import Products from "./Products";
 import Error from "./Error";
 import Categories from "./Categories";
-import ProductDetails from "./ProductDetails";
 import Cart from "./Cart";
+import ProductDetailPage from "./ProductDetailPage";
 
-
-export {Home, Collection, Contact, About, Products, Error, Categories, ProductDetails, Cart};
+export {Home, Collection, Contact, About, Products, Error, Categories, Cart, ProductDetailPage};

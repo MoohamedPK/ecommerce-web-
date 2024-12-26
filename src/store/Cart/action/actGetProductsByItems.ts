@@ -11,13 +11,13 @@ const actGetProductsByItems = createAsyncThunk("cart/actGetProductsByItems", asy
     const itemsId = Object.keys(cart.items)
 
     if (!itemsId.length) {
-        
         return fulfillWithValue([])
     }
     
     try {
         const concatenatedItemsId = itemsId.map((item) => `id=${item}`).join("&")
         const response = await axios.get<TResponse>(`http://localhost:5005/products?${concatenatedItemsId}`)
+        console.log(response.data)
         return response.data
         
     } catch (error) {
