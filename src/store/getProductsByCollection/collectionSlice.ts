@@ -1,6 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { TProducts, TLoading } from "src/types";
 import actGetCollectionByPrefix from "./action/actGetCollectionByPrefix";
+import isString from "../../types/guardForString";
 
 type TCollectionState = {
     records:TProducts[],
@@ -30,11 +31,13 @@ const collectionSlice = createSlice({
         builder.addCase(actGetCollectionByPrefix.fulfilled, (state, action) => {
             state.error= null
             state.loading= "succeeded"
-            state.records= action.payload
+            state.records= action.payload 
         })
         builder.addCase(actGetCollectionByPrefix.rejected, (state, action) => {
-            state.error= action.payload as string
             state.loading= "failed"
+            if (isString(action.payload)) {
+                state.error = action.payload
+            }
         })
     }
 })

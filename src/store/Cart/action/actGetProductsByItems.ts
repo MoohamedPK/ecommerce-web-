@@ -21,7 +21,11 @@ const actGetProductsByItems = createAsyncThunk("cart/actGetProductsByItems", asy
         return response.data
         
     } catch (error) {
-        rejectWithValue(error)
+        if(axios.isAxiosError(error)) {
+            return rejectWithValue(error.message)
+        } else {
+            return rejectWithValue("an expected error")
+        }
     }
 })
 

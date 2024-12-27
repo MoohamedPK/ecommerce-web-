@@ -1,4 +1,3 @@
-
 type TPaginationProps = {
     totalProducts:number,
     prodsPerPage:number,
@@ -17,10 +16,7 @@ function Pagination({totalProducts, prodsPerPage, setCurrentPage, currentPage}:T
     }
 
     const handleCurrentPage = (page:number) => {
-        
         setCurrentPage(page)
-        
-    
         scrollTo(0,0)
     }
 

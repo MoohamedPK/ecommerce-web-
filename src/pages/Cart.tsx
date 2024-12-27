@@ -3,6 +3,7 @@ import CartItemsList from "@components/eCommerce/cartItemsList/CartItemsList"
 import useGetCartItems from "@hooks/useGetCartItems"
 import { Link } from "react-router-dom"
 import Loading from "@feedback/loading/Loading"
+import LottieHandler from "@feedback/lottieHandler/LottieHandler"
 
 function Cart() {
 
@@ -21,7 +22,8 @@ function Cart() {
           </div>
       
           ): (
-            <div className="flex justify-center items-center text-center flex-col mt-32 font-semibold space-y-5">
+            <div className="flex justify-center items-center text-center flex-col font-semibold space-y-5">
+              <LottieHandler type="empty" />
               <h1>Your Cart Is Currently Empty</h1>
               <p className="text-sm font-normal text-gray-500 leading-6">Before proceed to checkout you must add some products to your shopping cart.<br></br>
                 You will find a lot of interesting productson our "Shop" page.

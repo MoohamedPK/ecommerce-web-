@@ -6,7 +6,8 @@ import { memo } from "react"
 
 type TCartItemProps = TProducts
 
- const CartItem =  memo(({title, img, price, quantity, id}: TCartItemProps) => {
+  const CartItem =  memo(({title, img, price, quantity, id}: TCartItemProps) => {
+
   const dispatch = useAppDispatch()
   const handleIncreasing = () => {
     dispatch(increaseProdQuantity(id))

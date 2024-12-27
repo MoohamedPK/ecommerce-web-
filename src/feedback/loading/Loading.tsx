@@ -1,4 +1,4 @@
-import { TLoading } from "@types/";
+import { TLoading } from "../../types/index";
 
 type TLoadingProps = {
   loading: TLoading,
@@ -10,7 +10,7 @@ function Loading({loading, error, children}:TLoadingProps) {
 
   if (loading === "pending") {
     return <p>Loading Please Wait</p>
-  } else if (loading === "faild") {
+  } else if (loading === "failed") {
     return <p>{error}</p>
   }
   return (

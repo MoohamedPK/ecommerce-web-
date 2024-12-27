@@ -1,5 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios"
+import axiosErrorHandler from "src/util/axiosErrorHandler/AxiosErrorHandler";
 import { TProducts } from "src/types";
 
 type TResponse = TProducts[]
@@ -13,7 +14,7 @@ const actGetProducts = createAsyncThunk("products/actGetProducts", async(prefix:
         return response.data
 
     } catch (error) {
-        rejectWithValue(error)
+        rejectWithValue(axiosErrorHandler(error))
     }
 })
 

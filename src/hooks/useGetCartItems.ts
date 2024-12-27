@@ -8,7 +8,11 @@ const useGetCartItems = () => {
   const {items,productFullInfo, error, loading} = useAppSelector(state => state.cart)
 
   useEffect(() => {
-    dispatch(actGetProductsByItems())
+    const promise = dispatch(actGetProductsByItems())
+
+    return () => {
+      promise.abort()
+    }
   }, [dispatch])
 
   // we merge between the prodfullinfo and the items 

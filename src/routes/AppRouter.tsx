@@ -1,21 +1,37 @@
 import {createBrowserRouter, RouterProvider} from "react-router-dom"
+import { lazy, Suspense } from "react"
 import MainLayout from '@components/layouts/MainLayout/MainLayout'
-import {Home, Collection, Contact, About, Products, Error, Cart, ProductDetailPage} from "@pages/main" 
+import Error from "@pages/Error"
+
+const Home = lazy(() => import('@pages/Home'))
+const Collection = lazy(() => import('@pages/Collection'))
+const Contact = lazy(() => import('@pages/Contact'))
+const About = lazy(() => import('@pages/About'))
+const Products = lazy(() => import('@pages/Products'))
+const Cart = lazy(() => import('@pages/Cart'))
+const ProductDetailPage = lazy(() => import('@pages/ProductDetailPage'))
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout/>,
+
     errorElement: <Error/>,
     
     children: [
       {
         index: true,
-        element: <Home/>
+        
+        element:
+        <Suspense fallback='Please Wait...'>
+            <Home/>
+        </Suspense>
       },
       {
         path: "collection",
-        element: <Collection/>
+        element: <Suspense fallback='Please Wait...'>
+            <Collection/>
+        </Suspense>
       },
       {
         path: "collection/:prefix",
@@ -29,27 +45,39 @@ const router = createBrowserRouter([
           }
           return true;
         },
-        element: <Collection/>
+        element: <Suspense fallback='Please Wait...'>
+            <Collection/>
+        </Suspense>
       },
       {
         path: "/product",
-        element: <Products/>,
+        element: <Suspense fallback='Please Wait...'>
+            <Products/>
+        </Suspense>,
       },
       {
         path: "/contact",
-        element: <Contact/>
+        element: <Suspense fallback='Please Wait...'>
+            <Contact/>
+        </Suspense>
       },
       {
         path: "/about",
-        element: <About/>
+        element: <Suspense fallback='Please Wait...'>
+            <About/>
+        </Suspense>
       },
       {
         path: "/cart",
-        element: <Cart/>
+        element: <Suspense fallback='Please Wait...'>
+            <Cart/>
+        </Suspense>
       },
       {
         path: "/collection/product/:prefix",
-        element: <ProductDetailPage/>
+        element: <Suspense fallback='Please Wait...'>
+            <ProductDetailPage/>
+        </Suspense>
       }
     ]
   }
@@ -58,7 +86,7 @@ const router = createBrowserRouter([
 
 function AppRouter() {
   return (
-    <RouterProvider router={router}>AppRouter</RouterProvider>
+    <RouterProvider router={router}></RouterProvider>
   )
 }
 
