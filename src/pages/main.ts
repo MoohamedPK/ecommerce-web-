@@ -7,5 +7,7 @@ import Error from "./Error";
 import Categories from "./Categories";
 import Cart from "./Cart";
 import ProductDetailPage from "./ProductDetailPage";
+import Login from "./Login";
+import Register from "./Register";
 
-export {Home, Collection, Contact, About, Products, Error, Categories, Cart, ProductDetailPage};
+export {Home, Collection, Contact, About, Products, Error, Categories, Cart, ProductDetailPage, Login, Register};

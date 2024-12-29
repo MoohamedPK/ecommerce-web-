@@ -1,11 +1,14 @@
 // import ShoppingCart from "@assets/svg/cart.svg";
 import { NavLink, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
-import logo from "@assets/logo/logo.png"
-import menu from "@assets/icons/menu_icon.png"
-// import { MdSearch } from "react-icons/md"
 import HeaderBasket from "@components/eCommerce/shoppingCart/HeaderBasket";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+
+//ICONS 
+import logo from "@assets/logo/logo.png"
+import menu from "@assets/icons/menu_icon.png"
+import { CiUser } from "react-icons/ci";
 
 function Header() {
 
@@ -46,10 +49,14 @@ function Header() {
             </div>
 
             <div className="flex items-center">
-                <div className="flex items-center carticon mx-5">
+                <div className="flex items-center mx-5">
                   {/* icon here */}
+                  <Link to={'/login'} className="cursor-pointer ">
+                    <CiUser size={28}/>
+                  </Link>
+
                   {/* <MdSearch size={30} className="mr-4 cursor-pointer"/> */}
-                  <div className="cursor-pointer" onClick={() => {navigate("/cart")}}>
+                  <div className="cursor-pointer ml-5" onClick={() => {navigate("/cart")}}>
                     <HeaderBasket/>
                   </div>
                 </div>

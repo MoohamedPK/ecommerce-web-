@@ -10,6 +10,8 @@ const About = lazy(() => import('@pages/About'))
 const Products = lazy(() => import('@pages/Products'))
 const Cart = lazy(() => import('@pages/Cart'))
 const ProductDetailPage = lazy(() => import('@pages/ProductDetailPage'))
+const Login = lazy(() => import('@pages/Login'))
+const Register = lazy(() => import('@pages/Register'))
 
 const router = createBrowserRouter([
   {
@@ -78,7 +80,19 @@ const router = createBrowserRouter([
         element: <Suspense fallback='Please Wait...'>
             <ProductDetailPage/>
         </Suspense>
-      }
+      },
+      {
+        path: "/login",
+        element: <Suspense fallback='Please Wait...'>
+            <Login/>
+        </Suspense>
+      },
+      {
+        path: "/register",
+        element: <Suspense fallback='Please Wait...'>
+            <Register/>
+        </Suspense>
+      },
     ]
   }
 ])
